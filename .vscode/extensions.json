@@ -1,0 +1,17 @@
+{
+    "recommendations": [
+        "ms-vscode.cpptools",
+        "mhutchie.git-graph",
+        "KevinRose.vsc-python-indent",
+        "mshr-h.veriloghdl",
+        "mshr-h.systemverilog",
+        "redhat.vscode-xml",
+        "redhat.vscode-yaml",
+        "oderwat.indent-rainbow",
+        "aaron-bond.better-comments",
+        "yzhang.markdown-all-in-one",
+        "bierner.markdown-preview-github-styles",
+        "PKief.material-icon-theme",
+        "fabiospampinato.vscode-monokai-night"
+    ]
+}

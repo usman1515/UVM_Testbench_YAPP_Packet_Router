@@ -1,0 +1,9 @@
+bin
+
+csrc
+simv.daidir
+simv.vdb
+compilation.log
+simv
+*.vcd *.vpd *.key *.h \
+verdi_config_file
