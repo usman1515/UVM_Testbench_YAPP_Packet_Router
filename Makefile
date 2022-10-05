@@ -14,7 +14,7 @@ DIR_RESULTS_TB	:= $(PRJ_DIR)/bin
 SHELL 		:= bash
 
 TIME		= 5000000
-VERB		= UVM_LOW
+VERB		= UVM_HIGH
 TEST		=
 SEED		:= $$(date +%d-%m-%Y_%H:%M:%S)
 FILE_NAME	= ${SEED}${TEST}
@@ -50,7 +50,7 @@ compile:
 	@ cd ${DIR_RESULTS_TB} && vcs $(COMP_OPT) \
 	+incdir+${DIR_UVC} +incdir+${DIR_SEQUENCES} +incdir+${DIR_TESTS} \
 	${DIR_SRC}/*.sv \
-	${DIR_UVC}/tb_top.sv
+	${DIR_UVC}/flist.sv ${DIR_UVC}/tb/tb_top.sv
 	@ echo ------------------------------------ DONE ----------------------------------
 	@ echo " "
 
@@ -89,9 +89,13 @@ runall:
 	@ echo " "
 
 clean:
+	@ echo " "
+	@ echo ------------------------------ CLeaning dumps ------------------------------
 	@ rm -rf simv.daidir test.daidir \
 	simv test csrc verdiLog \
 	verdi_config_file \
 	${DIR_RESULTS_TB} \
 	DVEfiles \
 	*.fsdb *.vcd *.vpd *.log *.conf *.rc *.key
+	@ echo ----------------------------------------------------------------------------
+	@ echo " "
