@@ -32,6 +32,7 @@ COMP_OPT	+= -cm line+tgl+branch -cm_tgl portsonly
 COMP_OPT	+= -ntb_opts uvm-1.2
 COMP_OPT	+= '-LDFLAGS -Wl,--no-as-needed'
 COMP_OPT	+= +vcs+initreg+random
+COMP_OPT	+= +SVSEED=random
 
 SIM_OPT		+= -cm line+tgl+branch
 SIM_OPT		+= -l simulation_${TEST}.log
