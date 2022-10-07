@@ -24,10 +24,10 @@ class router_base_test extends uvm_test;
 
     // ------------------------------------------ end of elaboration phase
     function void end_of_elaboration_phase(uvm_phase phase);
-        `uvm_info(get_type_name(), $sformatf("STARTED ELABORATING router_base_test:    "), UVM_HIGH)
+        `uvm_info(get_type_name(), $sformatf("STARTED elaborating router_base_test:    "), UVM_HIGH)
         super.end_of_elaboration_phase(phase);
         uvm_top.print_topology();
-        `uvm_info(get_type_name(), $sformatf("COMPLETED ELABORATING router_base_test:  "), UVM_LOW)
+        `uvm_info(get_type_name(), $sformatf("COMPLETED elaborating router_base_test:  "), UVM_LOW)
     endfunction : end_of_elaboration_phase
 
     // ------------------------------------------ run task
@@ -40,6 +40,12 @@ class router_base_test extends uvm_test;
         //set a drain-time for the environment if desired
         phase.phase_done.set_drain_time(this, 20);
     endtask : run_phase
+
+    function void check_phase(uvm_phase phase);
+        `uvm_info(get_type_name(), $sformatf("STARTED checking router_base_test:    "), UVM_HIGH)
+        check_config_usage();
+        `uvm_info(get_type_name(), $sformatf("COMPLETED checking router_base_test:  "), UVM_LOW)
+    endfunction : check_phase
 
 	// ------------------------------------------ report phase
     function void report_phase(uvm_phase phase);
