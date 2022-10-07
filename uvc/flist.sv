@@ -9,6 +9,7 @@ import uvm_pkg::*;
 // -------------------------------- UVM Environment HBUS
 // -------------------------------- UVM Environment YAPP Packet
 `include "./yapp/yapp_packet.sv"
+`include "./yapp/yapp_packet_short.sv"
 `include "./yapp/yapp_tx_sequencer.sv"
 `include "./yapp/yapp_tx_driver.sv"
 `include "./yapp/yapp_tx_monitor.sv"
@@ -24,4 +25,5 @@ import uvm_pkg::*;
 
 // --------------------------------------------------------- Test cases
 `include "../tests/router/router_base_test.sv"
-`include "../tests/router/test2.sv"
+`include "../tests/router/router_short_packet_test.sv"
+`include "../tests/router/router_set_config_test.sv"
