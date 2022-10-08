@@ -14,7 +14,7 @@ DIR_RESULTS_TB	:= $(PRJ_DIR)/bin
 SHELL 		:= bash
 
 TIME		= 5000000
-VERB		= UVM_LOW
+VERB		= UVM_HIGH
 TEST		=
 SEED		:= $$(date +%d-%m-%Y_%H:%M:%S)
 FILE_NAME	= ${SEED}${TEST}
@@ -32,6 +32,7 @@ COMP_OPT	+= -cm line+tgl+branch -cm_tgl portsonly
 COMP_OPT	+= -ntb_opts uvm-1.2
 COMP_OPT	+= '-LDFLAGS -Wl,--no-as-needed'
 COMP_OPT	+= +vcs+initreg+random
+COMP_OPT	+= +SVSEED=random
 
 SIM_OPT		+= -cm line+tgl+branch
 SIM_OPT		+= -l simulation_${TEST}.log
@@ -50,7 +51,7 @@ compile:
 	@ cd ${DIR_RESULTS_TB} && vcs $(COMP_OPT) \
 	+incdir+${DIR_UVC} +incdir+${DIR_SEQUENCES} +incdir+${DIR_TESTS} \
 	${DIR_SRC}/*.sv \
-	${DIR_UVC}/tb_top.sv
+	${DIR_UVC}/flist.sv ${DIR_UVC}/tb/tb_top.sv
 	@ echo ------------------------------------ DONE ----------------------------------
 	@ echo " "
 
@@ -89,9 +90,13 @@ runall:
 	@ echo " "
 
 clean:
+	@ echo " "
+	@ echo ------------------------------ CLeaning dumps ------------------------------
 	@ rm -rf simv.daidir test.daidir \
 	simv test csrc verdiLog \
 	verdi_config_file \
 	${DIR_RESULTS_TB} \
 	DVEfiles \
 	*.fsdb *.vcd *.vpd *.log *.conf *.rc *.key
+	@ echo ----------------------------------------------------------------------------
+	@ echo " "
