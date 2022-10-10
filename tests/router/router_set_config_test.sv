@@ -5,7 +5,7 @@ class router_set_config_test extends router_base_test;
 
     // ------------------------------------------ component instances
     int iterations=1;
-    yapp_5_packets_seq yapp_seq;
+    yapp_5_pkt_seq yapp_seq;
 
     // ------------------------------------------ constructor
     function new(string name="router_set_config_test", uvm_component parent=null);

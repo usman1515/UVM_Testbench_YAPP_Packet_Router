@@ -6,7 +6,7 @@ class router_base_test extends uvm_test;
     // ------------------------------------------ component instances
     int iterations=1;
     router_tb tb;
-    yapp_5_packets_seq yapp_seq;
+    yapp_5_pkt_seq yapp_seq;
 
     // ------------------------------------------ constructor
     function new(string name="router_base_test", uvm_component parent=null);
@@ -18,7 +18,7 @@ class router_base_test extends uvm_test;
         `uvm_info(get_type_name(), $sformatf("STARTED building router_base_test:    "), UVM_HIGH)
         super.build_phase(phase);
         tb = router_tb::type_id::create("tb", this);
-        yapp_seq = yapp_5_packets_seq::type_id::create("yapp_seq", this);
+        yapp_seq = yapp_5_pkt_seq::type_id::create("yapp_seq", this);
         `uvm_info(get_type_name(), $sformatf("COMPLETED building router_base_test:  "), UVM_LOW)
     endfunction : build_phase
 

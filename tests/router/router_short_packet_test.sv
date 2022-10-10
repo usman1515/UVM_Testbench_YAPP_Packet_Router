@@ -5,7 +5,7 @@ class router_short_packet_test extends router_base_test;
 
     // ------------------------------------------ component instances
     int iterations=1;
-    yapp_5_packets_seq yapp_seq;
+    yapp_5_pkt_seq yapp_seq;
 
     // ------------------------------------------ constructor
     function new(string name="router_short_packet_test", uvm_component parent=null);
@@ -20,7 +20,7 @@ class router_short_packet_test extends router_base_test;
         set_type_override_by_type(yapp_packet::get_type(), yapp_packet_short::get_type());  // method 1
         // yapp_packet::type_id::set_type_override(yapp_packet_short::get_type());          // method 2
         uvm_config_int::set(this, "*", "recording_detail", 1);
-        yapp_seq = yapp_5_packets_seq::type_id::create("yapp_seq", this);
+        yapp_seq = yapp_5_pkt_seq::type_id::create("yapp_seq", this);
     `uvm_info(get_type_name(), $sformatf("COMPLETED building router_short_packet_test:  "), UVM_LOW)
     endfunction : build_phase
 
